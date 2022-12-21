@@ -51,12 +51,10 @@ export default function Home() {
                     <CardContent>
                       <Typography>{product.title}</Typography>
                       <Typography>Rs: {product.price}</Typography>
-                      <Typography>Stock: {product.rating.count}</Typography>
                     </CardContent>
                   </CardActionArea>
                 </NextLink>
                 <CardActions>
-                  <Typography>Rating: {product.rating.rate}</Typography>
                   <Button size="small" color="primary">
                     Add to Cart
                   </Button>
