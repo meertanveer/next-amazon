@@ -1,8 +1,9 @@
 import Layout from '../../components/layout';
+import NextLink from 'next/link';
 import React from 'react';
 import data from '../../utils/data';
 import { useRouter } from 'next/router';
-import NextLink from 'next/link';
+
 export default function ProductScreen() {
   const router = useRouter();
   const { slug } = router.query;
@@ -10,5 +11,11 @@ export default function ProductScreen() {
   if (!product) {
     return <div>No Product Available</div>;
   }
-  return <Layout></Layout>;
+  return (
+    <Layout title={product.title}>
+      <div>
+        <NextLink>back to product</NextLink>
+      </div>
+    </Layout>
+  );
 }
