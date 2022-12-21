@@ -25,7 +25,7 @@ export default function ProductScreen() {
     return <div>No Product Available</div>;
   }
   return (
-    <Layout title={product.title}>
+    <Layout title={product.title} description={product.description}>
       <div className={classes.section}>
         <NextLink href="/">back to product</NextLink>
       </div>
@@ -47,6 +47,9 @@ export default function ProductScreen() {
         </Grid>
         <Grid item md={3} xs={12}>
           <List>
+            <ListItem>
+              <Typography component="h1">{product.title}</Typography>
+            </ListItem>
             <ListItem>Category: {product.category}</ListItem>
             <ListItem>
               Rating: {product.rating.rate} stars ({product.rating.count}{' '}
