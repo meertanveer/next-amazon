@@ -2,6 +2,7 @@ import {
   AppBar,
   Container,
   CssBaseline,
+  Switch,
   ThemeProvider,
   Toolbar,
   Typography,
@@ -42,6 +43,9 @@ export default function Layout({ title, description, children }) {
     },
   });
   const classes = useStyles();
+  const darkModeToggle = () => {
+    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
+  };
   return (
     <div>
       <Head>
@@ -57,6 +61,7 @@ export default function Layout({ title, description, children }) {
             </NextLink>
             <div className={classes.grow}></div>
             <div>
+              <Switch checked={darkMode} onChange={darkModeToggle}></Switch>
               <NextLink href="/cart">Cart</NextLink>
               <NextLink href="/login">Login</NextLink>
             </div>
