@@ -8,7 +8,6 @@ import {
   Typography,
 } from '@material-ui/core';
 
-import Image from 'next/image';
 import Layout from '../../components/layout';
 import NextLink from 'next/link';
 import React from 'react';

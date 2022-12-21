@@ -6,14 +6,17 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core';
+import React, { useContext } from 'react';
 
 import Head from 'next/head';
 import NextLink from 'next/link';
-import React from 'react';
+import { Store } from '../utils/Store';
 import { createTheme } from '@material-ui/core/styles';
 import useStyles from '../utils/styles';
 
 export default function Layout({ title, description, children }) {
+  const { state, dispatch } = useContext(Store);
+  const { darkMode } = state;
   const theme = createTheme({
     typography: {
       h1: {
@@ -29,7 +32,7 @@ export default function Layout({ title, description, children }) {
       },
     },
     palette: {
-      type: 'light',
+      type: darkMode ? 'dark' : 'light',
       primary: {
         main: '#f0c000',
       },
