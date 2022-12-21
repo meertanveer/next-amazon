@@ -1,8 +1,10 @@
 import { createContext, useReducer } from 'react';
 
+import Cookies from 'js-cookie';
+
 export const Store = createContext();
 const initialState = {
-  darkMode: false,
+  darkMode: Cookies.get('darkMode') === 'ON' ? true : false,
 };
 function reducer(state, action) {
   switch (action.type) {
