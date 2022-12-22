@@ -25,7 +25,7 @@ export default function Layout({ title, description, children }) {
         fontSize: '1.6rem',
         fontWeight: 400,
         margin: '1rem 0',
-        color: '#c45a',
+        color: '#b12a',
       },
       h2: {
         fontSize: '1.4rem',
