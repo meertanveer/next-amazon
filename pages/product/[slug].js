@@ -58,8 +58,7 @@ export default function ProductScreen() {
             </ListItem>
             <ListItem>
               <Typography>
-                Rating: {product.rating.rate} stars ({product.rating.count}{' '}
-                reviews)
+                Rating: {product.rating} stars ({product.reviews} reviews)
               </Typography>
             </ListItem>
             <ListItem>
@@ -87,7 +86,7 @@ export default function ProductScreen() {
                   </Grid>
                   <Grid item xs={6}>
                     <Typography>
-                      {product.rating.count > 0 ? 'In Stock' : 'Out of Stock'}
+                      {product.count > 0 ? 'In Stock' : 'Out of Stock'}
                     </Typography>
                   </Grid>
                 </Grid>

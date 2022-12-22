@@ -6,10 +6,10 @@ const productSchema = new mongoose.Schema(
     slug: { type: String, required: true, unique: true },
     category: { type: String, required: true },
     price: { type: Number, required: true },
-    rating: { type: Number, required: true, default: 0 },
+    rate: { type: Number, required: true, default: 0 },
     description: { type: String, required: true },
     image: { type: String, required: true },
-    reviews: { type: Number, required: true, default: 0 },
+    count: { type: Number, required: true, default: 0 },
   },
   {
     timestamps: true,
