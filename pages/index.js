@@ -11,9 +11,12 @@ import {
 
 import Layout from '../components/layout';
 import NextLink from 'next/link';
+import Product from '../models/Product';
 import data from '../utils/data';
+import db from '../utils/db';
 
-export default function Home() {
+export default function Home(props) {
+  const { products } = props;
   function slugify(str) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
@@ -33,7 +36,7 @@ export default function Home() {
     <Layout>
       <h1>Products</h1>
       <Grid container spacing={2}>
-        {data.products.map((product) => {
+        {products.map((product) => {
           const slug = slugify(product.title);
           console.log(product.title);
           console.log(slug);
@@ -66,4 +69,14 @@ export default function Home() {
       </Grid>
     </Layout>
   );
+}
+export async function getServerSideProps() {
+  await db.connect();
+  const products = await Product.find({}).lean();
+  await db.disconnect();
+  return {
+    props: {
+      products: products.map(db.convertDocToObj),
+    },
+  };
 }
