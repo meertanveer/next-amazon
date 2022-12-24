@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Badge,
   Container,
   CssBaseline,
   Switch,
@@ -18,7 +19,7 @@ import useStyles from '../utils/styles';
 
 export default function Layout({ title, description, children }) {
   const { state, dispatch } = useContext(Store);
-  const { darkMode } = state;
+  const { darkMode, cart } = state;
   const theme = createTheme({
     typography: {
       h1: {
@@ -65,7 +66,15 @@ export default function Layout({ title, description, children }) {
             <div className={classes.grow}></div>
             <div>
               <Switch checked={darkMode} onChange={darkModeToggle}></Switch>
-              <NextLink href="/cart">Cart</NextLink>
+              <NextLink href="/cart">
+                {cart.cartItems.length > 0 ? (
+                  <Badge color="secondary" badgeContent={cart.cartItems.length}>
+                    <Typography>Cart</Typography>
+                  </Badge>
+                ) : (
+                  'Cart'
+                )}
+              </NextLink>
               <NextLink href="/login">Login</NextLink>
             </div>
           </Toolbar>

@@ -12,7 +12,7 @@ import {
 import Layout from '../components/layout';
 import NextLink from 'next/link';
 import Product from '../models/Product';
-import data from '../utils/data';
+// import data from '../utils/data';
 import db from '../utils/db';
 
 export default function Home(props) {
